@@ -1,8 +1,15 @@
 import { ApolloClient , InMemoryCache} from '@apollo/client'
 import { createUploadLink } from 'apollo-upload-client'
 
+let base_url = ''
+
+if(process.env.NODE_ENV === 'development') base_url = process.env.REACT_APP_API_URL;
+
+if(process.env.NODE_ENV === 'production') base_url = process.env.API_URL
+
+
 const link = createUploadLink({
-  uri:`${process.env.REACT_APP_API_URL}/graphql`,
+  uri:`${base_url}/graphql`,
   request: (operation) => {
     const token = localStorage.getItem('token')
     operation.setContext({
