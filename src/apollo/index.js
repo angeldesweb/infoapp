@@ -5,8 +5,7 @@ let base_url = ''
 
 if(process.env.NODE_ENV === 'development') base_url = process.env.REACT_APP_API_URL;
 
-if(process.env.NODE_ENV === 'production') base_url = process.env.API_URL
-
+if(process.env.NODE_ENV === 'production') base_url = 'https://cne-notas-api.herokuapp.com'
 
 const link = createUploadLink({
   uri:`${base_url}/graphql`,
