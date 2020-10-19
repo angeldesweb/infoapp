@@ -1,13 +1,19 @@
 import React from 'react';
 import {BrowserRouter as Router,Switch,Route} from 'react-router-dom';
-import Login from '../container/Login';
-import MainContainer from '../container/Main';
+import Login from '../components/views/Login';
+import Home from '../components/views/Home';
 
-export default ()=>(
+const Destacada = ()=> <h1>Destacada</h1>
+
+const Accounts = () => <h1>Accounts</h1>
+
+export default (props) => (
     <Router>
         <Switch>
-            <Route path="/login" component={Login} match history />
-            <Route path='/' component={MainContainer} match history />
+            <Route path='/login' render={(props)=>(<Login {...props} />)} />
+            <Route path='/destacada' render={(props)=>(<Destacada {...props}  />)} />
+            <Route path='/accounts' render={(props)=>(<Accounts {...props} />)} />
+            <Route path='/' render={(props)=>(<Home {...props} />)} />
         </Switch>
     </Router>
 )

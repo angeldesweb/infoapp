@@ -4,7 +4,6 @@ import client from './apollo'
 import 'semantic-ui-css/semantic.min.css'
 import { ApolloProvider } from '@apollo/react-hooks';
 import Routes from './routes';
-console.log(process.env)
 if(process.env.NODE_ENV==="development"){
   const dotenv = require('dotenv')
   const dotenvExpand = require('dotenv-expand')

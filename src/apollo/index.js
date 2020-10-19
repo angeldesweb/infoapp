@@ -1,4 +1,4 @@
-import { ApolloClient , InMemoryCache} from '@apollo/client'
+import { ApolloClient , InMemoryCache } from '@apollo/client'
 import { createUploadLink } from 'apollo-upload-client'
 
 let base_url = process.env.REACT_APP_API_URL
@@ -13,7 +13,8 @@ const link = createUploadLink({
       }
     })
   }
-})
+});
+
 const client = new ApolloClient({
   link:link,
   cache:new InMemoryCache()

@@ -2,13 +2,21 @@ import gql from 'graphql-tag';
 
 
 const SIGN_IN = gql`
-        mutation signIn($tipoCedula:String,$cedula:String!,$password:String!){
-            signIn(tipoCedula:$tipoCedula,cedula:$cedula,password:$password){
+        mutation SignIn($cedula:String!,$password:String!){
+            SignIn(cedula:$cedula,password:$password){
                 success
                 status
+                message
+                error{
+                    path
+                    message
+                }
                 token
                 usuario{
                     _id
+                    nombre
+                    cedula
+                    role
                 }
             }
         }
